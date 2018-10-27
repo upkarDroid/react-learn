@@ -25,21 +25,35 @@ class LearnReact extends React.Component{
         }
         
         class Action extends React.Component {
+            decision(){
+                alert('What should you do ?')
+            }
             render(){
                 return (
                     <div>
-                    <button>What should i do ?</button>
+                    <button onClick={this.decision}>What should i do ?</button>
                     </div>
                     )
                 }
             }
             
             class Options extends React.Component {
+
+                constructor(props){
+                    super(props);
+                    this.removeAll = this.removeAll.bind(this);
+                }
+                removeAll(){
+                    console.log(this);
+                    this.props.options.pop();
+                    
+                }
                 render(){
                     
                     return (
                         <div>
                         <h3>here are your options from options Component</h3>
+                        <button onClick={this.removeAll}>Remove All Options</button>
                         
                         {/* <Option options={options}/> */}
                         {
@@ -71,11 +85,20 @@ class LearnReact extends React.Component{
                     }
                     
                     class AddOPtion  extends React.Component {
-                        
+                        onFormSubmit(e){
+                            e.preventDefault();
+                            const option = e.target.elements.add.value.trim();
+                            if(option){
+                                //do something
+                                alert(option);
+                                e.target.elements.add.value = "";
+                            }
+
+                        }
                         render(){
                             return (
                                 <div>
-                                <form>
+                                <form onSubmit={this.onFormSubmit}>
                                 <input type="text" name="add" />
                                 <button>Add</button>
                                 </form>
