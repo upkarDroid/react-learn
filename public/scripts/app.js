@@ -298,6 +298,4 @@ var AddOPtion = function (_React$Component7) {
     return AddOPtion;
 }(React.Component);
 
-var jsx = React.createElement(LearnReact, null);
-
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(React.createElement(LearnReact, null), document.getElementById('app'));

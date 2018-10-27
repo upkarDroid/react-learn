@@ -16,6 +16,7 @@ class LearnReact extends React.Component {
     randomAction() {
         alert("picking first option " + this.state.options[0])
     }
+    
     removeAll() {
         this.setState(() => {
             return {
