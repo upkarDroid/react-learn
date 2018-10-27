@@ -159,9 +159,6 @@ class AddOPtion extends React.Component {
     }
 }
 
-const jsx = (
-    <LearnReact />
-);
 
 
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<LearnReact />, document.getElementById('app'));
