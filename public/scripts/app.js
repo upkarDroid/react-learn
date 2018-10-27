@@ -8,50 +8,30 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Counter = function (_React$Component) {
-    _inherits(Counter, _React$Component);
+var appRoot = document.getElementById("app");
 
-    function Counter(props) {
-        _classCallCheck(this, Counter);
+var Vbuilder = function (_React$Component) {
+    _inherits(Vbuilder, _React$Component);
 
-        var _this = _possibleConstructorReturn(this, (Counter.__proto__ || Object.getPrototypeOf(Counter)).call(this, props));
+    function Vbuilder(props) {
+        _classCallCheck(this, Vbuilder);
 
-        _this.addOne = _this.addOne.bind(_this);
-        _this.subtractOne = _this.subtractOne.bind(_this);
-        _this.reset = _this.reset.bind(_this);
+        var _this = _possibleConstructorReturn(this, (Vbuilder.__proto__ || Object.getPrototypeOf(Vbuilder)).call(this, props));
+
+        _this.toggleMe = _this.toggleMe.bind(_this);
+
         _this.state = {
-            count: 0
+            toggleSwitch: false
         };
         return _this;
     }
 
-    _createClass(Counter, [{
-        key: 'addOne',
-        value: function addOne() {
-            console.log('addOne');
+    _createClass(Vbuilder, [{
+        key: 'toggleMe',
+        value: function toggleMe() {
             this.setState(function (prevState) {
                 return {
-                    count: prevState.count + 1
-                };
-            });
-        }
-    }, {
-        key: 'subtractOne',
-        value: function subtractOne() {
-            console.log('subtractOne');
-            this.setState(function (prevState) {
-                return {
-                    count: prevState.count - 1
-                };
-            });
-        }
-    }, {
-        key: 'reset',
-        value: function reset() {
-            console.log('reset');
-            this.setState(function () {
-                return {
-                    count: 0
+                    toggleSwitch: !prevState.toggleSwitch
                 };
             });
         }
@@ -64,29 +44,23 @@ var Counter = function (_React$Component) {
                 React.createElement(
                     'h1',
                     null,
-                    'Counter : ',
-                    this.state.count || 0
+                    'visiblility playground'
                 ),
                 React.createElement(
                     'button',
-                    { onClick: this.addOne },
-                    '+1'
+                    { onClick: this.toggleMe },
+                    this.state.toggleSwitch ? 'hide details' : 'show details'
                 ),
-                React.createElement(
-                    'button',
-                    { onClick: this.subtractOne },
-                    '-1'
-                ),
-                React.createElement(
-                    'button',
-                    { onClick: this.reset },
-                    'Reset'
+                this.state.toggleSwitch && React.createElement(
+                    'p',
+                    null,
+                    'Details are now shown'
                 )
             );
         }
     }]);
 
-    return Counter;
+    return Vbuilder;
 }(React.Component);
 
-ReactDOM.render(React.createElement(Counter, null), document.getElementById('app'));
+ReactDOM.render(React.createElement(Vbuilder, null), appRoot);

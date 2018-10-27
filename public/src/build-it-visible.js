@@ -1,27 +1,33 @@
 const appRoot = document.getElementById("app");
 
-
-
-
-let toggelSwicth = false;
-
-
-const toggleMe = ()=>{
-    toggelSwicth = !toggelSwicth;
-    render();
-}
-
-
-const render = ()=>{
-    const template = (
-        <div>
+class Vbuilder extends React.Component{
+    
+    constructor(props){
+        super(props);
+        this.toggleMe = this.toggleMe.bind(this);
+        
+        this.state = {
+            toggleSwitch:false
+        }       
+    }
+    toggleMe(){
+        this.setState((prevState)=>{
+            return{
+                toggleSwitch : !prevState.toggleSwitch
+            }
+        })
+    }
+    
+    render(){
+        return(
+            <div>
             <h1>visiblility playground</h1>
-            <button onClick={toggleMe}>{toggelSwicth ? 'hide details' : 'show details'}</button>
-            {toggelSwicth && <p>Details are now shown</p>}
-        </div>
-    );
-
-    ReactDOM.render(template,appRoot);
-}
-
-render();
+            <button onClick={this.toggleMe}>{this.state.toggleSwitch ? 'hide details' : 'show details'}</button>
+            {this.state.toggleSwitch && <p>Details are now shown</p>}
+            </div>
+            );
+        }
+    }
+    
+    
+    ReactDOM.render(<Vbuilder />,appRoot)
