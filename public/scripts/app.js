@@ -22,7 +22,7 @@ var LearnReact = function (_React$Component) {
         _this.deleteOption = _this.deleteOption.bind(_this);
         _this.state = {
             title: "React using components",
-            subtitle: "give your life to the computer program",
+            subtitle: "Hand your life to the computer program",
             options: props.options
 
         };

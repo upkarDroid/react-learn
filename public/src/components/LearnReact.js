@@ -1,3 +1,9 @@
+import React from 'react';
+import AddOPtion from './AddOption';
+import Header from './Header';
+import Options from './Options';
+import Action from './Action';
+
 class LearnReact extends React.Component {
 
     constructor(props) {
@@ -104,125 +110,6 @@ class LearnReact extends React.Component {
 LearnReact.defaultProps = {
     options: ["option1", "option2", "option3", "optionFour"]
 }
-const Header = (props) => {
-    return (
-        <div className="header">
-            <h1>{props.title || "Default Title"}</h1>
-            <h2>{props.subtitle}</h2>
-        </div>);
-}
-// class Header extends React.Component {
-//     render() {
-
-//     }
-// }
-
-const Action = (props) => {
-    return (
-        <div>
-            <button disabled={!props.hasOptions} onClick={props.decision}>What should i do ?</button>
-        </div>
-    );
-}
-
-// class Action extends React.Component {
-//     decision() {
-//         alert('What should you do ?')
-//     }
-//     render() {
-
-//         )
-//     }
-// }
 
 
-
-const Options = (props) => {
-    return (
-        <div>
-            <h3>here are your options from options Component</h3>
-            <button onClick={props.removeAll}>Remove All Options</button>
-
-            {/* <Option options={options}/> */}
-            {
-                props.options.map((val, ind) => (<OptionSingle
-                    key={ind}
-                    option={val}
-                    deleteOption={props.deleteOption}
-
-                />
-                ))
-            }
-        </div>
-    )
-}
-
-const OptionSingle = (props) => {
-    return (
-        <p>
-            {props.option}&nbsp;&nbsp;&nbsp;
-        <button onClick={(e) => {
-                props.deleteOption(props.option)
-            }}
-            >x</button>
-        </p>
-    );
-}
-
-
-class Option extends React.Component {
-    render() {
-        return (
-            <ol>
-                {this.props.options.map((val, ind) => (
-                    <li key={ind}>
-                        {val}
-                        <button onClick={(e) => {
-                            props.deleteOption(val)
-                        }}></button>
-                    </li>))}
-            </ol>
-
-
-        );
-    }
-}
-
-class AddOPtion extends React.Component {
-    constructor(props) {
-        super(props);
-        this.onFormSubmit = this.onFormSubmit.bind(this);
-        this.state = {
-            errorMsg: null
-        }
-    }
-    onFormSubmit(e) {
-        e.preventDefault();
-        const option = e.target.elements.add.value.trim();
-        const error = this.props.addOneOption(option);
-
-        if (error) {
-            //do something
-            this.setState(() => ({ errorMsg: error }))
-        } else {
-            e.target.elements.add.value = "";
-        }
-
-
-    }
-    render() {
-        return (
-            <div>
-                <form onSubmit={this.onFormSubmit}>
-                    <input type="text" name="add" />
-                    <button>Add</button>
-                </form>
-                {this.state.errorMsg && <h2>{this.state.errorMsg}</h2>}
-            </div>
-        );
-    }
-}
-
-
-
-ReactDOM.render(<LearnReact options={["devils den", "district 13"]} />, document.getElementById('app'));
+export default LearnReact;
