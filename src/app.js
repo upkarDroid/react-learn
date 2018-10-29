@@ -1,7 +1,12 @@
-console.log("app is runnning");
+import React from 'react';
+import ReactDOM from 'react-dom';
+import LearnReact from './components/LearnReact'
 
 
-var template = <h1>this is runnig the react now </h1>;
-var appRoot = document.getElementById("app");
 
-reactDOM.render(template,appRoot);
+
+
+
+
+
+ReactDOM.render(<LearnReact options={["devils den", "district 13"]} />, document.getElementById('app'));

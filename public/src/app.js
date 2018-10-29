@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LearnReact from './components/LearnReact'
+import LearnReact from './components-new/LearnReact';
+import 'normalize.css/normalize.css';
+import './styles/style.scss';
 
 
 

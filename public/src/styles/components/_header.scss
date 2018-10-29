@@ -1,0 +1,17 @@
+
+.header{
+    background-color:$off-black;
+    margin-bottom: $xl-size;
+    padding: $m-size 0;
+    color: whitesmoke;
+
+    .title{
+        font-size: $l-size;
+        margin: 0;
+    }
+    .subtitle{
+        color: $off-grey;
+        font-weight: 500;
+        margin: 0;
+    }
+}
